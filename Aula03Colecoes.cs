@@ -85,9 +85,9 @@ namespace Aula03Colecoes
             {
                 dados += "=====================================\n";
                 dados += string.Format("Id: {0}\n", lista[i].Id);
-                dados +=
-                dados +=
-                dados +=
+                dados += string.Format("Nome: {0 \n}", lista[i].Nome);
+                dados += string.Format("CPF: {0} \n", lista[i].Cpf);
+                dados += string.Format("Adimissão: {0:dd/mm/yyyy}")
                 dados +=
                 dados +=
                 dados +=
