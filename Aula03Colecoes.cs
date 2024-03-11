@@ -231,6 +231,14 @@ namespace Aula03Colecoes
 
         }
 
+         public static void teste(int id )
+        {
+            Funcionario fbusca = lista.Find( x => x.Id == id);
+
+            Console.WriteLine($"Personagem encontrado : {fbusca.Nome}");
+
+        }
+
     
 
 
