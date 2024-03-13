@@ -122,7 +122,10 @@ namespace Aula03Colecoes
                  Console.WriteLine("2 - Adicionar Funcionario");
                  Console.WriteLine("3 - Obter por Id digtado");
                  Console.WriteLine("4 - Obter por Nome");
-                 Console.WriteLine("5 - Obter Lista do Funcionario");
+                 Console.WriteLine("5 - Tipo do funcionario ");
+                 Console.WriteLine("6 - Valide o Nome");
+                 Console.WriteLine("7 - Exibit Estatstica");
+                 Console.WriteLine("8 - Filtragem");
                  Console.WriteLine("==================================================");
                  Console.WriteLine("-----Ou tecle qualquer outro número para sair-----");
                  Console.WriteLine("==================================================");       
@@ -153,10 +156,30 @@ namespace Aula03Colecoes
                     break;
 
                     case 5:
-                    Console.WriteLine("Digite o Num da Lista:");
+                    Console.WriteLine("Digite o Nome do Funcionario e O tipo sera Exibido");
                     int f = int.Parse(Console.ReadLine());
                     ObeterPorTipo(f);
                     break;
+
+                    case 6:
+                    Console.WriteLine("Digte um nome:");
+                    string name = Console.ReadLine();
+                    validarNome(name);
+                    break;
+
+                    case 7:
+                
+                        obterEstat();
+
+                    break;
+
+                    case 8:
+                     
+                        filtragem();
+
+                     break;
+
+
 
 
 
@@ -196,7 +219,7 @@ namespace Aula03Colecoes
                 }
                 else if (f.Salario == 0)
                 {
-                    Console.WriteLine("Valor do Salario n]ao pode ser 0");
+                    Console.WriteLine("Valor do Salario nao pode ser 0");
                     return;
                 }
                 else
@@ -236,6 +259,40 @@ namespace Aula03Colecoes
             Funcionario fbusca = lista.Find( x => x.Id == id);
 
             Console.WriteLine($"Personagem encontrado : {fbusca.Nome}");
+
+        }
+
+        public static void validarNome( string name)
+
+        {
+            if(name.Length <= 2)
+            {
+                Console.WriteLine("Nome Invalido");
+
+            }
+            else
+            {
+                Console.WriteLine("Nome Valido");
+            }
+            
+
+        }
+
+        public static void obterEstat()
+        {
+            int qtd = lista.Count();
+            decimal somatoria = lista.Sum(x => x.Salario);
+
+            Console.WriteLine(string.Format("Existem {0} Funcionarios, A soma dos salario é {1}", qtd, somatoria));
+
+        }
+
+        public static void filtragem()
+        {
+            lista.RemoveAll(x => x.Id < 4);
+            lista  = lista.OrderBy(x => x.Id).ToList();
+            ExibirLista();
+
 
         }
 
